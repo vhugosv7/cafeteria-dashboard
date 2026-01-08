@@ -1,0 +1,31 @@
+name: Envío mensual de reporte de ventas
+
+on:
+  schedule:
+    - cron: "0 15 1 * *"   # 9 AM CDMX
+  workflow_dispatch:
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install pandas gspread google-auth
+
+      - name: Run monthly report script
+        run: python send_monthly_report.py
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          GSHEET_CREDENTIALS: ${{ secrets.GSHEET_CREDENTIALS }}
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
