@@ -63,7 +63,7 @@ df_mes = df[df["mes"] == mes_actual]
 # 4. MÉTRICAS PRINCIPALES
 # =========================
 ventas_totales = df_mes["monto"].sum()
-ventas_categoria = df_mes.groupby("categoría")["monto"].sum()
+ventas_categoria = df_mes.groupby("categoria")["monto"].sum()
 ventas_mes = df.groupby("mes")["monto"].sum()
 top_productos = (
     df_mes.groupby("producto")["monto"]
@@ -87,7 +87,7 @@ plt.close()
 
 plt.figure()
 ventas_categoria.plot(kind="bar")
-plt.title("Ventas por categoría")
+plt.title("Ventas por categoria")
 plt.ylabel("Monto ($)")
 plt.tight_layout()
 plt.savefig("ventas_categoria.png")
@@ -119,7 +119,7 @@ elements.append(Paragraph("Ventas en el tiempo", styles["Heading2"]))
 elements.append(Image("ventas_mensuales.png", width=400, height=250))
 elements.append(Spacer(1, 20))
 
-elements.append(Paragraph("Ventas por categoría", styles["Heading2"]))
+elements.append(Paragraph("Ventas por categoria", styles["Heading2"]))
 elements.append(Image("ventas_categoria.png", width=400, height=250))
 elements.append(Spacer(1, 20))
 
