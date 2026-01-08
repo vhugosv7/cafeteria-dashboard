@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pandas gspread google-auth
+          pip install pandas gspread google-auth matplotlib reportlab
 
       - name: Run monthly report script
         run: python send_monthly_report.py
