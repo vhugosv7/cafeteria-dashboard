@@ -1,5 +1,4 @@
 import streamlit as st
-import plotly.graph_objects as go
 import pandas as pd
 import smtplib
 from email.message import EmailMessage
@@ -186,4 +185,5 @@ else:
     st.warning("Sube un archivo CSV para comenzar")
 
 st.markdown("---")
+
 st.caption("Demo avanzada: carga de datos + envío automático de reportes.")
