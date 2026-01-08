@@ -71,7 +71,7 @@ df_mes.to_csv(buffer, index=False)
 
 EMAIL_USER = os.getenv("EMAIL_USER")
 EMAIL_PASS = os.getenv("EMAIL_PASS")
-EMAIL_TO = "cliente@correo.com"
+EMAIL_TO = "hsan66694@gmail.com"
 
 msg = EmailMessage()
 msg["Subject"] = f"Reporte de ventas – {month}/{year}"
