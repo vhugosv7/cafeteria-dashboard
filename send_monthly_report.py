@@ -13,6 +13,8 @@ from google.oauth2.service_account import Credentials
 # =============================
 
 creds_dict = json.loads(os.getenv("GSHEET_CREDENTIALS"))
+print("GSHEET_CREDENTIALS:", os.getenv("GSHEET_CREDENTIALS"))
+
 scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
 creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
 client = gspread.authorize(creds)
